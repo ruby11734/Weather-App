@@ -28,10 +28,6 @@ module.exports = {
           },
           {
             loader: "css-loader",
-            // option: {
-            //   modules: true,
-            //   // localIdentName: "[path][name]__[local]-[hase:base64:5]",
-            // },
           },
           {
             loader: "sass-loader",
