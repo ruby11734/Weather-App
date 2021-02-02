@@ -1,21 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
   position: absolute;
   right: 10%;
-  top: 20%;
+  top: 8%;
 `;
 
-const Letter = styled.h2`
-  font-size: 30px;
+const City = styled.h1`
   color: white;
+  border-bottom: 2px white solid;
+  background-color: rgba(150, 150, 150, 0.6);
+  padding: 10px;
 `;
 
 export default function Location(props) {
+  console.log("props:" + props.cityName);
+  if (props.cityName === undefined) return null;
   return (
     <Wrapper>
-      <Letter>{props.cityName}</Letter>
+      <City>{props.cityName}</City>
     </Wrapper>
   );
 }
