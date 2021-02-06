@@ -50,8 +50,6 @@ export default function CurrentCityWeather(props) {
           lat: position.coords.latitude,
           lon: position.coords.longitude,
         };
-        console.log("getCurrentLocation: ");
-        console.log(coordinates);
       });
     }
   };
