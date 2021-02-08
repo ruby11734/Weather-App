@@ -7,10 +7,10 @@ const Wrapper = styled.div`
   margin: 100px auto;
   width: 800px;
   height: 600px;
-  ${"" /* background-color: burlywood; */}
-  ${"" /* overflow: hidden; */}
-  border: 1px solid black;
-  border-radius: 5px;
+  background-color: #fffaf0;
+  overflow: hidden;
+  border: 5px solid rgba(150, 150, 150, 0.6);
+  border-radius: 25px;
 `;
 export default function Weathers(props) {
   const [coords, setCoords] = useState({ lat: null, lon: null });
