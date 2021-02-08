@@ -13,7 +13,6 @@ const TempWrapper = styled.div`
 `;
 
 const Temperature = styled.h1`
-  background-color: rgba(150, 150, 150, 0.6);
   font-size: 70px;
 `;
 
@@ -43,9 +42,7 @@ const Content = styled.div`
   text-align: center;
 `;
 
-export default function Weather(props) {
-  console.log(props.clouds);
-
+export default function CurrentWeather(props) {
   return (
     <Wrapper>
       <TempWrapper>

@@ -12,7 +12,11 @@ const Icon = styled.img`
 `;
 
 const Item = styled.span`
-  height: 50px;
+  margin: 10px auto;
+`;
+
+const Temperature = styled(Item)`
+  color: rgba(150, 150, 150, 0.9);
 `;
 
 export default function OneDayForecast(props) {
@@ -50,9 +54,8 @@ export default function OneDayForecast(props) {
       <Item>
         <Icon src={data.icon}></Icon>
       </Item>
-      <Item style={{ textAlign: "center" }}>
-        {" "}
-        {Math.round(data.temperature) + " ° "}
+      <Item>
+        <Temperature>{Math.round(data.temperature) + " ° "}</Temperature>
       </Item>
     </Wrapper>
   );
