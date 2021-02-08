@@ -10,9 +10,12 @@ const Icon = styled.img`
   src: ${(props) => props.src};
 `;
 
-const Item = styled.span`
-  margin: auto 10px;
+const Item = styled.div`
+  margin: 0 10px;
   width: 70px;
+  height: 50px;
+  display: flex;
+  align-items: center;
 `;
 
 export default function City(props) {

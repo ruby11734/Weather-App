@@ -10,10 +10,11 @@ const Wrapper = styled.div`
 const City = styled.h1`
   color: white;
   border-bottom: 2px white solid;
+  background-color: rgba(150, 150, 150, 0.6);
   padding: 10px;
 `;
 
-export default function CurrentLocation(props) {
+export default function Location(props) {
   if (props.cityName === undefined) return null;
   return (
     <Wrapper>
