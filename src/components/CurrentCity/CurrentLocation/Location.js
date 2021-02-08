@@ -15,7 +15,6 @@ const City = styled.h1`
 `;
 
 export default function Location(props) {
-  console.log("props:" + props.cityName);
   if (props.cityName === undefined) return null;
   return (
     <Wrapper>

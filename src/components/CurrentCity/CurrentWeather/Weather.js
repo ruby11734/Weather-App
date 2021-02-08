@@ -3,13 +3,12 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   color: white;
-  ${"" /* width: 100%; */}
 `;
 
 const TempWrapper = styled.div`
   position: absolute;
   top: 5%;
-  left: 20%;
+  left: 18%;
   margin-top: -20px;
 `;
 
@@ -26,20 +25,22 @@ const Cloud = styled.div`
 const WindWrapper = styled.div`
   position: absolute;
   bottom: 5%;
-  left: 10%;
+  left: 5%;
+  display: flex;
+  align-items: center;
 `;
 
-const WindSpan = styled.span`
-  display: block;
-  float: left;
+const Item = styled.div`
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+  padding: 10px;
+`;
+
+const Content = styled.div`
+  height: 30px;
   text-align: center;
-`;
-
-const HumiditySpan = styled(WindSpan)`
-  border-right: 2px white solid;
-`;
-const WindBlock = styled.div`
-  margin: 20px;
 `;
 
 export default function Weather(props) {
@@ -52,14 +53,14 @@ export default function Weather(props) {
         <Cloud>{props.clouds}</Cloud>
       </TempWrapper>
       <WindWrapper>
-        <HumiditySpan>
-          <WindBlock>{"HUMIDITY"}</WindBlock>
-          <WindBlock>{props.humidity + " %"}</WindBlock>
-        </HumiditySpan>
-        <WindSpan>
-          <WindBlock>{"WIND"}</WindBlock>
-          <WindBlock>{props.wind + " K/M"}</WindBlock>
-        </WindSpan>
+        <Item>
+          <Content>{"HUMIDITY"}</Content>
+          <Content>{props.humidity + " %"}</Content>
+        </Item>
+        <Item style={{ borderLeft: "2px solid white" }}>
+          <Content>{"WIND"}</Content>
+          <Content>{props.wind + " K/M"}</Content>
+        </Item>
       </WindWrapper>
     </Wrapper>
   );

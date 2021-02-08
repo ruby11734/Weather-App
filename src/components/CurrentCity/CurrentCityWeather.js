@@ -41,41 +41,11 @@ export default function CurrentCityWeather(props) {
     clouds: null,
   });
 
-  let coordinates = {};
-
-  const getCurrentLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        coordinates = {
-          lat: position.coords.latitude,
-          lon: position.coords.longitude,
-        };
-      });
-    }
-  };
-
-  const getCurrentWeather = () => {
-    if (data.cityName !== "")
-      return (
-        <div>
-          {getBackground(data.sunset)}
-          <Location cityName={data.cityName}></Location>
-          <Weather
-            temperature={data.temperature}
-            clouds={data.clouds}
-            humidity={data.humidity}
-            wind={data.wind}
-          ></Weather>
-        </div>
-      );
-    return null;
-  };
-
   useEffect(() => {
-    const latitude = coordinates.lat;
-    const longitude = coordinates.lon;
+    const latitude = props.coordinates.lat;
+    const longitude = props.coordinates.lon;
 
-    if (coordinates.lat !== undefined) {
+    if (latitude !== null) {
       const getWeather = async () => {
         const api_call = await fetch(
           `${props.api.base}weather?lat=${latitude}&lon=${longitude}&appid=${props.api.key}&units=metric`
@@ -94,12 +64,24 @@ export default function CurrentCityWeather(props) {
       };
       getWeather();
     }
-  }, [coordinates.lat]);
+  }, [props.coordinates.lat]);
 
-  return (
-    <Wrapper>
-      {getCurrentLocation()}
-      {getCurrentWeather()}
-    </Wrapper>
-  );
+  const getCurrentWeather = () => {
+    if (data.cityName !== "")
+      return (
+        <div>
+          {getBackground(data.sunset)}
+          <Location cityName={data.cityName}></Location>
+          <Weather
+            temperature={data.temperature}
+            clouds={data.clouds}
+            humidity={data.humidity}
+            wind={data.wind}
+          ></Weather>
+        </div>
+      );
+    return null;
+  };
+
+  return <Wrapper>{getCurrentWeather()}</Wrapper>;
 }

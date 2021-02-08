@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import CurrentCityWeather from "./CurrentCity/CurrentCityWeather";
-import OtherCitiesWeather from "./OtherCities/OtherCitiesWeather";
+import MoreWeathers from "./MoreWeathers/MoreWeathers";
 
 const Wrapper = styled.div`
   margin: 100px auto;
@@ -13,10 +13,25 @@ const Wrapper = styled.div`
   border-radius: 5px;
 `;
 export default function Weathers(props) {
+  const [coords, setCoords] = useState({ lat: null, lon: null });
+
+  const getCurrentLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        setCoords({
+          lat: position.coords.latitude,
+          lon: position.coords.longitude,
+        });
+      });
+    }
+  };
+
   return (
     <Wrapper>
-      <CurrentCityWeather api={props.api}></CurrentCityWeather>
-      <OtherCitiesWeather api={props.api}></OtherCitiesWeather>
+      <CurrentCityWeather coordinates={coords} api={props.api}>
+        {getCurrentLocation()}
+      </CurrentCityWeather>
+      <MoreWeathers coordinates={coords} api={props.api}></MoreWeathers>
     </Wrapper>
   );
 }
