@@ -6,8 +6,10 @@ const api = {
   base: "https://api.openweathermap.org/data/2.5/",
 };
 
+const CITIES = ["Sydney", "Brisbane", "Perth"];
+
 const App = () => {
-  return <Weathers api={api}></Weathers>;
+  return <Weathers api={api} cities={CITIES}></Weathers>;
 };
 
 export default App;

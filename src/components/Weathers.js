@@ -25,13 +25,16 @@ export default function Weathers(props) {
       });
     }
   };
-
   return (
     <Wrapper>
       <CurrentCityWeather coordinates={coords} api={props.api}>
         {getCurrentLocation()}
       </CurrentCityWeather>
-      <MoreWeathers coordinates={coords} api={props.api}></MoreWeathers>
+      <MoreWeathers
+        coordinates={coords}
+        api={props.api}
+        cities={props.cities}
+      ></MoreWeathers>
     </Wrapper>
   );
 }

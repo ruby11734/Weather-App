@@ -26,7 +26,7 @@ export default function City(props) {
   useEffect(() => {
     const getWeather = async () => {
       const api_call = await fetch(
-        `${url}weather?q=${props.cityName}&appid=${props.api.key}&units=metric`
+        `${url}weather?q=${props.city}&appid=${props.api.key}&units=metric`
       );
 
       const response = await api_call.json();
@@ -44,7 +44,7 @@ export default function City(props) {
 
   return data.temperature === null ? null : (
     <Wrapper>
-      <Item>{props.cityName}</Item>
+      <Item>{props.city}</Item>
       <Item style={{ textAlign: "center" }}>
         {Math.round(data.temperature) + " ° "}
       </Item>

@@ -62,8 +62,7 @@ export default function CurrentCityWeather(props) {
       getWeather();
     }
   }, [props.coordinates.lat]);
-  console.log(data);
-  console.log(new Date().getHours() < data.sunrise);
+
   return (
     <Wrapper sunset={data.sunset} sunrise={data.sunrise}>
       {data.cityName === "" ? null : (

@@ -16,13 +16,12 @@ const List = styled.ul`
   list-style: none;
 `;
 export default function OtherCities(props) {
-  const cityName = ["Sydney", "Brisbane", "Perth"];
   return (
     <Wrapper>
       <Title>{"Other Cities"}</Title>
       <List>
-        {cityName.map((row, index) => (
-          <City key={index} api={props.api} cityName={row}></City>
+        {props.cities.map((row, index) => (
+          <City key={index} api={props.api} city={row}></City>
         ))}
       </List>
     </Wrapper>

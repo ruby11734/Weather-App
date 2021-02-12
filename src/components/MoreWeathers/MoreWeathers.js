@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 export default function MoreWeathers(props) {
   return (
     <Wrapper>
-      <OtherCities api={props.api}></OtherCities>
+      <OtherCities api={props.api} cities={props.cities}></OtherCities>
       <FiveDaysForecast
         coordinates={props.coordinates}
         api={props.api}

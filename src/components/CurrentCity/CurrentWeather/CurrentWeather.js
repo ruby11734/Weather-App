@@ -43,8 +43,6 @@ const Content = styled.div`
 `;
 
 export default function CurrentWeather(props) {
-  console.log(props.clouds);
-
   return (
     <Wrapper>
       <TempWrapper>
